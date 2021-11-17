@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Connect Me</string>
+
+    <string name="agree_text_welcome_screen">Tap button below to accept the ConnectMe Terms of Services and Privacy Policy</string>
+    <string name="sms_verification_information">ConnectMe will send an SMS message to verify your phone number.</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+
+    <!-- Example settings for Data & Sync -->
+
+    <!-- Example settings for Notifications -->
+
+</resources>

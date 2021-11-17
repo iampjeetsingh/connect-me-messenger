@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEE7DE">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+        <ImageView
+            android:id="@+id/frnd_image"
+            android:onClick="photoClick"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_account_circle" />
+        <ImageView
+            android:id="@+id/online_dot"
+            android:visibility="invisible"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/online_dot"
+            app:layout_constraintBottom_toBottomOf="@id/frnd_image"
+            app:layout_constraintRight_toRightOf="@id/frnd_image"/>
+        <TextView
+            android:id="@+id/frnd_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Name"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/frnd_image"
+            app:layout_constraintTop_toTopOf="@+id/frnd_image" />
+        <TextView
+            android:id="@+id/frnd_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="1 day ago"
+            app:layout_constraintLeft_toLeftOf="@+id/frnd_name"
+            app:layout_constraintTop_toBottomOf="@+id/frnd_name" />
+        <ImageView
+            android:onClick="videoCallClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/callbtn"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_action_videocall"/>
+        <ImageView
+            android:id="@+id/callbtn"
+            android:onClick="callClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/menubtn"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_action_call"/>
+        <ImageView
+            android:id="@+id/menubtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="dotMenuClick"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_action_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/no_data_available_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_no_chat"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/no_chat_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+    <TextView
+        android:id="@+id/no_chat_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="No Chats yet"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/no_chat_text" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_chat_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarlayout"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="5dp"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/mes_area"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/attachButton"
+                android:onClick="attachClick"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/attachbtn" />
+            <EditText
+                android:id="@+id/messageArea"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Write a message..."
+                android:maxHeight="80dp"
+                android:textColor="#000000"
+                android:textColorHint="#D3D3D3" />
+            <ImageView
+                android:id="@+id/sendButton"
+                android:onClick="sendClick"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/sendbtn" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/recordButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_blue"
+            android:padding="8dp"
+            android:src="@drawable/ic_mic" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/show_chat_recyclerView"/>
+<ProgressBar
+    android:visibility="gone"
+    android:id="@+id/myprogressBar"
+    style="?android:attr/progressBarStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+</LinearLayout>
+
+
