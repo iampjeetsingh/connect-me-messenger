@@ -13,9 +13,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.connectme.messenger.App;
-import com.connectme.messenger.HomeActive;
-import com.connectme.messenger.HomeCalls;
-import com.connectme.messenger.HomeChats;
+import com.connectme.messenger.fragments.HomeActive;
+import com.connectme.messenger.fragments.HomeCalls;
+import com.connectme.messenger.fragments.HomeChats;
 import com.connectme.messenger.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;

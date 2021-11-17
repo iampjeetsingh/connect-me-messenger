@@ -1,4 +1,4 @@
-package com.connectme.messenger;
+package com.connectme.messenger.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.connectme.messenger.R;
 
 public class HomeCalls extends Fragment {
     @Nullable

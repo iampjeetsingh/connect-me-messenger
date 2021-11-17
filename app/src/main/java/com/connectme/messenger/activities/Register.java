@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
@@ -87,7 +88,14 @@ public class Register extends AppCompatActivity {
         builder.setCancelable(false);
         builder.setMessage("We will be verifying the phone number:\n\n"+phone+"\n\nIs this OK, or would you like to edit the number?");
         builder.setPositiveButton("OK", (dialog, which) -> {
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(phone,60,TimeUnit.SECONDS,Register.this,mCallbacks);
+            PhoneAuthOptions options =
+                    PhoneAuthOptions.newBuilder(mAuth)
+                            .setPhoneNumber(phone)       // Phone number to verify
+                            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                            .setActivity(Register.this)                 // Activity (for callback binding)
+                            .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
+                            .build();
+            PhoneAuthProvider.verifyPhoneNumber(options);
             startotp();
         });
         builder.setNegativeButton("Edit", (dialog, which) -> {
